@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿const { post } = require("jquery");
+
+$(document).ready(function () {
     var send = $("#send-button");
    
     
@@ -6,6 +8,19 @@
         e.preventDefault(); // <==stop page refresh==>
         console.log("in composing email");
         var data = $("#ComposingEmail").serialize();
-        console.log(data);
+
+        $.ajax({
+            method: post,
+            url: "/Message/CreateThread",
+            data: data,
+            success: function (data) {
+                console.log("done creating thread");
+            }, error: function () {
+                alert("error in ajax");
+            }
+
+
+
+        });
     });
 });
