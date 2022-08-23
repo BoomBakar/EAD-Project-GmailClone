@@ -20,6 +20,7 @@ namespace WebApplication4.Models
             db.SaveChanges();
             m.ThreadId = t.Id;
             db.Messages.Add(m);
+            db.SaveChanges();
             return true;
         }
     }
