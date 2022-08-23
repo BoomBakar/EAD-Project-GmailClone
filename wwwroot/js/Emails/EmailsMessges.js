@@ -1,4 +1,4 @@
-﻿const { post } = require("jquery");
+﻿//const { post } = require("jquery");
 
 $(document).ready(function () {
     var send = $("#send-button");
@@ -10,13 +10,13 @@ $(document).ready(function () {
         var data = $("#ComposingEmail").serialize();
 
         $.ajax({
-            method: post,
+            method: 'POST',
             url: "/Message/CreateThread",
             data: data,
             success: function (data) {
                 console.log("done creating thread");
             }, error: function () {
-                alert("error in ajax");
+                alert("error in ajax");     
             }
 
 
