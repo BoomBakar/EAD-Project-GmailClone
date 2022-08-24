@@ -1,7 +1,6 @@
 ﻿@using WebApplication4.Models
 @model User
 
-
 @{
     Layout = "_Layout";
 }
@@ -45,7 +44,7 @@
                             <div class="form-outline mb-4">
                                 <input asp-for="Email" id="form3Example3" class="form-control" />
                                 <label class="form-label" for="form3Example3">Email address</label><br />
-                                @*<span asp-validation-for="Email" style="color:red;"></span>*@
+                                <span asp-validation-for="Email" style="color:red;"></span>
                             </div>
 
                             <!-- Password input -->
@@ -63,7 +62,7 @@
                             </button>
                         </form>
                             @*<div id="invalid" style="display:none;"><p style="color:red;margin-top:20px;"><b>Invalid Username or Password</b></p></div>*@
-                            @if (Model.Password != "" || Model.Email != "")
+                            @if (ViewBag.verify!=null && Model.Password != "" || Model.Email != "")
                             {
                                 @if (!ViewBag.verify)
                                  {

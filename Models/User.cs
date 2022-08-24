@@ -12,6 +12,8 @@ namespace WebApplication4.Models
         {
             MessageReceiverEmailNavigations = new HashSet<Message>();
             MessageSenderEmailNavigations = new HashSet<Message>();
+            ThreadEmailNavigations = new HashSet<Thread>();
+            ThreadReceiverEmailNavigations = new HashSet<Thread>();
         }
 
         public int Id { get; set; }
@@ -30,5 +32,7 @@ namespace WebApplication4.Models
 
         public virtual ICollection<Message> MessageReceiverEmailNavigations { get; set; }
         public virtual ICollection<Message> MessageSenderEmailNavigations { get; set; }
+        public virtual ICollection<Thread> ThreadEmailNavigations { get; set; }
+        public virtual ICollection<Thread> ThreadReceiverEmailNavigations { get; set; }
     }
 }

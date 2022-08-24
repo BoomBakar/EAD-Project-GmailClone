@@ -1,22 +1,19 @@
 ﻿
-
+@model WebApplication4.Models.Thread;
 
 <div class="row" id="emailList__list">
-    <a href="/Home/MailDetail">
+    <a href="/Message/MailDetail">
         <!-- Email Row Starts -->
 
         <div class="col" id="emailRow">
-            <div class="col" id="emailRow__options">
-                <input type="checkbox" />
-                <span class="material-icons"> label_important </span>
-            </div>
+            
             <div class="col">
-                <h3 id="emailRow__title">YouTube</h3>
+                <h3 id="emailRow__title">@Model.Email</h3>
             </div>
             <div class="col" id="emailRow__message">
                 <h4>
-                    You Got a New Subscriber
-                    <span class="emailRow__description"> - on Your Channel Future Coders </span>
+                    @Model.Subject
+                    @*<span class="emailRow__description"> - on Your Channel Future Coders </span>*@
                 </h4>
             </div>
             <div class="col">

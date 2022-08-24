@@ -51,16 +51,10 @@ C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\scopedcss\bundl
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\WebApplication4.TagHelpers.input.cache
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\WebApplication4.TagHelpers.output.cache
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\WebApplication4.RazorCoreGenerate.cache
-C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Home\Inbox.cshtml.g.cs
-C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Home\MailDetail.cshtml.g.cs
-C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Home\Sent.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Home\SignIn.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Home\SignUp.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Home\Thanks.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Home\UserList.cshtml.g.cs
-C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Home\_Emails.cshtml.g.cs
-C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Home\_SentMails.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Shared\_ViewStart.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
@@ -82,3 +76,8 @@ C:\Users\BoomBakar\source\repos\WebApplication4\bin\Debug\net5.0\System.Web.WebP
 C:\Users\BoomBakar\source\repos\WebApplication4\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Home\Reply.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Message\Compose.cshtml.g.cs
+C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Message\Inbox.cshtml.g.cs
+C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Message\_Emails.cshtml.g.cs
+C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Message\_SentMails.cshtml.g.cs
+C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Message\MailDetail.cshtml.g.cs
+C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Message\Sent.cshtml.g.cs

@@ -19,14 +19,14 @@ namespace WebApplication4.Controllers
             return View("SignIn", u);
         }
         [HttpPost]  //Sign in page for post request
-        public ViewResult SignIn(User u)
+        public IActionResult SignIn(User u)
         {
             ViewBag.verify = false;
 
             if (UserRepo.verifyUser(u))
             {
                 ViewBag.verify = true;
-                return View("Inbox", u);     // go to inbox if user entered right credentials
+                return RedirectToAction("Inbox","Message", u);     // go to inbox if user entered right credentials
             }
             else
             {
@@ -68,7 +68,7 @@ namespace WebApplication4.Controllers
                 if (UserRepo.addUser(u)) 
                 {
                     ViewBag.unique = true;
-                    return View("Thanks", u);   //add user if all model validations are fine
+                    return View("SignIn", u);   //add user if all model validations are fine
                 }
                 else
                 {

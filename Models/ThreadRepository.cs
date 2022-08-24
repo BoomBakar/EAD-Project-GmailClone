@@ -23,5 +23,26 @@ namespace WebApplication4.Models
             db.SaveChanges();
             return true;
         }
+        public List<Thread> getAllThreads(User u)
+        {
+            return db.Threads.Where(x => x.ReceiverEmail == u.Email).ToList();
+        }
+        public List<Message> getAllMessages(List<Thread> b)
+        {
+            List<Message> m = new List<Message>();
+            foreach(Thread c in b)
+            {
+                Message temp = new Message();
+                temp=db.Messages.Where(x => x.ThreadId == c.Id).FirstOrDefault();
+                m.Add(temp);
+            }
+            return m;
+        }
+        public AllEmails GetallEmails(AllEmails a)
+        {
+            a.SeparateThread = getAllThreads(a.curUser);
+            a.LatestMessage = getAllMessages(a.SeparateThread);
+            return a;
+        }
     }
 }

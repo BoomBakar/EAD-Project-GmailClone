@@ -84,7 +84,26 @@ namespace WebApplication4.Models
                     .HasMaxLength(900)
                     .IsUnicode(false);
 
+                entity.Property(e => e.ReceiverEmail)
+                    .IsRequired()
+                    .HasMaxLength(900)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Subject).IsUnicode(false);
+
+                entity.HasOne(d => d.EmailNavigation)
+                    .WithMany(p => p.ThreadEmailNavigations)
+                    .HasPrincipalKey(p => p.Email)
+                    .HasForeignKey(d => d.Email)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Thread_ToTable");
+
+                entity.HasOne(d => d.ReceiverEmailNavigation)
+                    .WithMany(p => p.ThreadReceiverEmailNavigations)
+                    .HasPrincipalKey(p => p.Email)
+                    .HasForeignKey(d => d.ReceiverEmail)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Thread_ToTable_1");
             });
 
             modelBuilder.Entity<User>(entity =>

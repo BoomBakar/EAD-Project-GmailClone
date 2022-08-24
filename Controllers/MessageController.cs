@@ -13,6 +13,27 @@ namespace WebApplication4.Controllers
         {
             TR = new ThreadRepository();
         }
+        public ViewResult Inbox(User u)
+        {
+            AllEmails a = new AllEmails();
+            a.curUser = u;
+
+            a=TR.GetallEmails(a);
+            return View(a);
+        }
+
+        public ViewResult Sent(User u)
+        {
+            AllEmails a = new AllEmails();
+            a.curUser = u;
+
+            a = TR.GetallEmails(a);
+            return View(a);
+        }
+        public ViewResult MailDetail()
+        {
+            return View();
+        }
         public IActionResult Compose(User u)
         {
             return View(u);
@@ -22,7 +43,7 @@ namespace WebApplication4.Controllers
             Thread t = new Thread();
             t.Subject = Subject;
             t.Email = SenderEmail;
-
+            t.ReceiverEmail = To;
             Message m = new Message();
             m.SenderEmail = SenderEmail;
             m.ReceiverEmail = To;

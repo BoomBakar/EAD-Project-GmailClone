@@ -1,7 +1,7 @@
 ﻿@{ 
     Layout = "_Layout";
 }
-@model WebApplication4.Models.User;
+@model WebApplication4.Models.AllEmails;
 
 @section InboxFiles {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -47,7 +47,7 @@
                             <!--inbox-->
                             <form method="post" asp-action="Compose" asp-controller="Message">
                                 
-                                <input class="d-none" type="text" asp-for="@Model.Email"/>
+                                <input class="d-none" type="text" asp-for="@Model.curUser.Email"/>
                                     <button class="sidebar__compose" type="submit">
                                         <span class="material-icons"> add </span>Compose
                                     </button>
@@ -55,23 +55,13 @@
                             </form>
                             <div class="col" id="sidebarOption" style="background-color: #f5dad9" ;>
                                 <span class="material-icons" href="#"> inbox </span>
-                                <a href="/Home/Inbox"><h3>Inbox</h3></a>
+                                <a href="#"><h3>Inbox</h3></a>
                             </div>
 
-                            <div class="col" id="sidebarOption">
-                                <!--starred-->
-                                <span class="material-icons"> star </span>
-                                <h3>Starred</h3>
-                            </div>
 
-                            <div class="col" id="sidebarOption">
-                                <!--snozz-->
-                                <span class="material-icons"> access_time </span>
-                                <h3>Snoozed</h3>
-                            </div>
-                             
+                           
 
-                            <a href="/Home/Sent">
+                            <a href="/Message/Sent">
                                 <div class="col" id="sidebarOption">
                                     <!--sent-->
 
@@ -80,18 +70,7 @@
                                 </div>
                             </a>
 
-                            <div class="col" id="sidebarOption">
-                                <span class="material-icons"> note </span>
-                                <h3>Drafts</h3>
-                            </div>
-
-                            <div class="col" id="sidebar__footer">
-                                <div class="col" id="sidebar__footerIcons">
-                                    <span class="material-icons"> person </span>
-                                    <span class="material-icons"> duo </span>
-                                    <span class="material-icons"> phone </span>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -147,10 +126,9 @@
                 <div class="row" id="tab-content" style="height: 650px; overflow: scroll;">
                     <div class="container id="emailList">
                         <!-- Email List rows starts -->
-                        @for(int i = 0; i < 20;i++)
-                            {
+                        @foreach(WebApplication4.Models.Thread a in Model.SeparateThread){
 
-                                <partial name="_Emails.cshtml"></partial>
+                                <partial name="_Emails.cshtml" model="a"></partial>
                             }
 
                 </div>

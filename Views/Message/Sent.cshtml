@@ -2,7 +2,7 @@
     Layout = "_Layout";
 }
 
-
+@model WebApplication4.Models.AllEmails;
 @section InboxFiles{
     <link type="text/css" rel="stylesheet" href="~/css/Inbox.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -45,48 +45,27 @@
             <div class="row">
                 <div class="col" id="sidebar">
                     <!--inbox-->
-                    <a asp-action="Compose">
-                        <button class="sidebar__compose">
+                    <form method="post" asp-action="Compose" asp-controller="Message">
+
+                        <input class="d-none" type="text" asp-for="@Model.curUser.Email" />
+                        <button class="sidebar__compose" type="submit">
                             <span class="material-icons"> add </span>Compose
                         </button>
-                    </a>
-                    <a href="/Home/Inbox">
+
+                    </form>
+                    <a href="/Message/Inbox">
                         <div class="col" id="sidebarOption">
                             <span class="material-icons" href="#"> inbox </span>
                             <h3>Inbox</h3>
                         </div>
                     </a>
-                    <div class="col" id="sidebarOption">
-                        <!--starred-->
-                        <span class="material-icons"> star </span>
-                        <h3>Starred</h3>
-                    </div>
-
-                    <div class="col" id="sidebarOption">
-                        <!--snozz-->
-                        <span class="material-icons"> access_time </span>
-                        <h3>Snoozed</h3>
-                    </div>
-
 
                     <div class="col" id="sidebarOption" style="background-color: #f5dad9" ;>
                         <!--sent-->
                         <span class="material-icons"> near_me </span>
-                        <a href="/Home/Sent"><h3>Sent</h3></a>
+                        <a href="/Message/Sent"><h3>Sent</h3></a>
                     </div>
 
-                    <div class="col" id="sidebarOption">
-                        <span class="material-icons"> note </span>
-                        <h3>Drafts</h3>
-                    </div>
-
-                    <div class="col" id="sidebar__footer">
-                        <div class="col" id="sidebar__footerIcons">
-                            <span class="material-icons"> person </span>
-                            <span class="material-icons"> duo </span>
-                            <span class="material-icons"> phone </span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -142,12 +121,14 @@
         <div class="row" id="tab-content" style="height: 650px; overflow: scroll;">
             <div class="container">
                 <!-- Email List rows starts -->
-                @for (int i = 0; i < 20; i++)
+                @foreach (WebApplication4.Models.Thread a in Model.SeparateThread)
                 {
-                    <partial name="_SentMails.cshtml"/>
+
+                    <partial name="_SentMails.cshtml" model="a"></partial>
                 }
 
             </div>
+
 
 
         </div>
