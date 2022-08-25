@@ -22,20 +22,32 @@ namespace WebApplication4.Controllers
             return View(a);
         }
 
-        public ViewResult Sent(User u)
+        public ViewResult Sent(String SenderEmail)
         {
             AllEmails a = new AllEmails();
+            User u = new User();
+            u.Email = SenderEmail;
             a.curUser = u;
 
-            a = TR.GetallEmails(a);
+            a = TR.getAllSentEmails(a);
             return View(a);
         }
-        public ViewResult MailDetail()
+        public ViewResult MailDetail(MessageThread MessageThreadValue,String CurUserEmail)
         {
-            return View();
+            MailDetailMessages m = new MailDetailMessages();
+            m.Thrd = new Thread();
+            m.Thrd.Id = MessageThreadValue.thrd.Id;
+            User U = new User();
+            U.Email = CurUserEmail;
+            m.curUser = U;
+            m.allMessages= TR.getAllMessages(m.Thrd);
+            m.Thrd = TR.getThreadInfo(m.Thrd.Id);
+            return View(m);
         }
-        public IActionResult Compose(User u)
+        public IActionResult Compose(String SenderEmail)
         {
+            User u = new User();
+            u.Email = SenderEmail;
             return View(u);
         }
         public IActionResult CreateThread(String To,String Subject,String Body,String SenderEmail)

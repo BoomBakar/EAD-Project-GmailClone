@@ -68,6 +68,7 @@ namespace WebApplication4.Controllers
                 if (UserRepo.addUser(u)) 
                 {
                     ViewBag.unique = true;
+                    ViewBag.verify = true;
                     return View("SignIn", u);   //add user if all model validations are fine
                 }
                 else

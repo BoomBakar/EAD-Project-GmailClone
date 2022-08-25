@@ -47,7 +47,7 @@
                     <!--inbox-->
                     <form method="post" asp-action="Compose" asp-controller="Message">
 
-                        <input class="d-none" type="text" asp-for="@Model.curUser.Email" />
+                        <input class="d-none" type="text" value="@Model.curUser.Email" name="SenderEmail"/>
                         <button class="sidebar__compose" type="submit">
                             <span class="material-icons"> add </span>Compose
                         </button>
@@ -121,7 +121,7 @@
         <div class="row" id="tab-content" style="height: 650px; overflow: scroll;">
             <div class="container">
                 <!-- Email List rows starts -->
-                @foreach (WebApplication4.Models.Thread a in Model.SeparateThread)
+                @foreach (WebApplication4.Models.MessageThread a in Model.MsgThread)
                 {
 
                     <partial name="_SentMails.cshtml" model="a"></partial>

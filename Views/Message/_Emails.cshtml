@@ -1,25 +1,29 @@
 ﻿
-@model WebApplication4.Models.Thread;
+@model WebApplication4.Models.MessageThread;
 
 <div class="row" id="emailList__list">
-    <a href="/Message/MailDetail">
+    
         <!-- Email Row Starts -->
+    <form method="post" asp-action="MailDetail" asp-controller="Message">
+        <div class="col EmailOpener EmailOpenerParent" id="emailRow">
 
-        <div class="col" id="emailRow">
-            
-            <div class="col">
-                <h3 id="emailRow__title">@Model.Email</h3>
+            <div class="col EmailOpener">
+                <h3 id="emailRow__title" class="EmailOpener">@Model.thrd.Email</h3>
             </div>
-            <div class="col" id="emailRow__message">
-                <h4>
-                    @Model.Subject
-                    @*<span class="emailRow__description"> - on Your Channel Future Coders </span>*@
+            <div class="col EmailOpener" id="emailRow__message">
+                <h4 class="EmailOpener">
+                    @Model.thrd.Subject
+                    <span class="emailRow__description"> - @Model.msg.Msg</span>
                 </h4>
             </div>
-            <div class="col">
-                <p class="emailRow__time">10pm</p>
+            <div class="col EmailOpener">
+                <p class="emailRow__time EmailOpener">@Model.msg.DateAndTime</p>
             </div>
         </div>
 
-    </a>
+        <input type="number" value="@Model.thrd.Id" asp-for="thrd.Id " class="d-none" />
+        <input type="email" value="" name="CurUserEmail" class="d-none"  />
+        <button type="submit" class="d-none" ></button>
+    </form>
+    
 </div>

@@ -12,7 +12,10 @@ namespace WebApplication4.Models
         {
             db = new MailContext();
         }
-
+        public Thread getThreadInfo(int id)
+        {
+            return db.Threads.Where(x => x.Id == id).FirstOrDefault();
+        }
         public bool AddThread(Thread t,Message m)
         {
             m.DateAndTime = Convert.ToString(DateTime.Now);
@@ -23,25 +26,61 @@ namespace WebApplication4.Models
             db.SaveChanges();
             return true;
         }
-        public List<Thread> getAllThreads(User u)
+        public AllEmails getAllThreads(User u)
         {
-            return db.Threads.Where(x => x.ReceiverEmail == u.Email).ToList();
+            List<Thread> th= db.Threads.Where(x => x.ReceiverEmail == u.Email).ToList();
+            AllEmails al = new AllEmails();
+            al.curUser = u;
+            foreach (Thread t in th)
+            {
+
+                MessageThread mt = new MessageThread();
+                mt.thrd = t;
+                al.MsgThread.Add(mt);
+            }
+            return al;
         }
-        public List<Message> getAllMessages(List<Thread> b)
+        public AllEmails getAllSentThreads(User u)
         {
-            List<Message> m = new List<Message>();
-            foreach(Thread c in b)
+            List<Thread> th= db.Threads.Where(x => x.Email == u.Email).ToList();
+            AllEmails al = new AllEmails();
+            al.curUser = u;
+            foreach(Thread t in th)
+            {
+
+                MessageThread mt = new MessageThread();
+                mt.thrd = t;
+                al.MsgThread.Add(mt);
+            }
+            return al;
+        }
+        public AllEmails getAllMessages(AllEmails b)
+        {
+           
+            foreach(MessageThread c in b.MsgThread)
             {
                 Message temp = new Message();
-                temp=db.Messages.Where(x => x.ThreadId == c.Id).FirstOrDefault();
-                m.Add(temp);
+                temp=db.Messages.Where(x => x.ThreadId == c.thrd.Id).FirstOrDefault();
+                c.msg = temp;
             }
-            return m;
+            return b;
+        }
+        public List<Message> getAllMessages(Thread t)
+        {
+            List<Message> M = db.Messages.Where(x => x.ThreadId == t.Id).ToList();
+            return M;
+
+        }
+        public AllEmails getAllSentEmails(AllEmails a)
+        {
+            a= getAllSentThreads(a.curUser);
+            a = getAllMessages(a);
+            return a;
         }
         public AllEmails GetallEmails(AllEmails a)
         {
-            a.SeparateThread = getAllThreads(a.curUser);
-            a.LatestMessage = getAllMessages(a.SeparateThread);
+            a = getAllThreads(a.curUser);
+            a = getAllMessages(a);
             return a;
         }
     }

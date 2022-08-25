@@ -81,3 +81,4 @@ C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Mes
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Message\_SentMails.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Message\MailDetail.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Message\Sent.cshtml.g.cs
+C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Message\_MsgDetails.cshtml.g.cs

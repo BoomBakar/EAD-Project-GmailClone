@@ -1,5 +1,8 @@
-﻿@{
+﻿
+@model WebApplication4.Models.MailDetailMessages;
+@{
     Layout = "_Layout";
+    ViewData["Subject"] = Model.Thrd.Subject;
 }
 
 @section InboxFiles{
@@ -54,17 +57,6 @@
                         <a href="/Home/Inbox"><h3>Inbox</h3></a>
                     </div>
 
-                    <div class="col" id="sidebarOption">
-                        <!--starred-->
-                        <span class="material-icons"> star </span>
-                        <h3>Starred</h3>
-                    </div>
-
-                    <div class="col" id="sidebarOption">
-                        <!--snozz-->
-                        <span class="material-icons"> access_time </span>
-                        <h3>Snoozed</h3>
-                    </div>
 
 
                     <div class="col" id="sidebarOption">
@@ -72,11 +64,6 @@
 
                         <span class="material-icons"> near_me </span>
                         <a href="/Home/Sent"><h3>Sent</h3></a>
-                    </div>
-
-                    <div class="col" id="sidebarOption">
-                        <span class="material-icons"> note </span>
-                        <h3>Drafts</h3>
                     </div>
 
                     <div class="col" id="sidebar__footer">
@@ -113,27 +100,16 @@
                 <!-- Settings Ends -->
             </div>
         </div>
-        <div id="maildet">
-            <p class="h3">You Got a New Subscriber</p><br />
-            <h4 style="margin-bottom:-6px" ;>
-                Youtube
-                <small class="text-muted">&lt;youtube@gmail.com&gt;</small>
-            </h4>
-            <small class="text-muted">to me</small><br /><br />
-            <div id="mailbody">
-                <p>
-                    Congratulations, You just got a new Subscriber on your youtube channel.<br />Keep growing and contributing to the community.
-                    <br /><br />Regards,<br />Youtube Community
-                </p><br /><br /><br />
-
-                <button id="rep" type="button" class="button def"><span class="material-icons">reply</span>&nbsp;Reply</button>
-                
-                <br />
-                <div id="reply"></div>
-            </div>
-
+        <div class="Message-Container">
+            @foreach (WebApplication4.Models.Message m in Model.allMessages)
+            {
+                <partial name="_MsgDetails" model="m"  />
+            }
         </div>
+        <button id="rep" type="button" class="button def"><span class="material-icons">reply</span>&nbsp;Reply</button>
 
+        <br />
+        <div id="reply"></div>
 
 
 

@@ -1,4 +1,4 @@
-﻿@model WebApplication4.Models.Thread;
+﻿@model WebApplication4.Models.MessageThread;
 
 
 <div class="row" id="emailList__list">
@@ -9,16 +9,16 @@
             <span class="material-icons"> label_important </span>
         </div>
         <div class="col">
-            <h3 id="emailRow__title">To: @Model.ReceiverEmail</h3>
+            <h3 id="emailRow__title">To: @Model.thrd.ReceiverEmail</h3>
         </div>
         <div class="col" id="emailRow__message">
             <h4>
-                @Model.Subject
-                @*<span class="emailRow__description"> - BSEF19M043 </span>*@
+                @Model.thrd.Subject
+                <span class="emailRow__description"> @Model.msg.Msg</span>
             </h4>
         </div>
         <div class="col">
-            <p class="emailRow__time">1pm</p>
+            <p class="emailRow__time">@Model.msg.DateAndTime</p>
         </div>
     </div>
 </div>

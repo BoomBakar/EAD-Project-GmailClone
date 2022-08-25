@@ -9,11 +9,9 @@ namespace WebApplication4.Models
     {
         public  AllEmails()
         {
-            LatestMessage = new List<Message>();
-            SeparateThread = new List<Thread>();
+            MsgThread = new List<MessageThread>();
         }
-        public List<Message> LatestMessage { get; set; }
-        public List<Thread> SeparateThread { get; set; }
+        public List<MessageThread> MsgThread { get; set; }
 
         public User curUser { get; set; }
     }

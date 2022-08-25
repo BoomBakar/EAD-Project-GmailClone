@@ -9,6 +9,7 @@
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link type="text/css" rel="stylesheet" href="~/css/Inbox.css">
+    <script src="~/js/Emails/EmailsMessges.js"></script>
 }
 
     @section InboxHeader{ 
@@ -46,12 +47,12 @@
                         <div class="col" id="sidebar">
                             <!--inbox-->
                             <form method="post" asp-action="Compose" asp-controller="Message">
-                                
-                                <input class="d-none" type="text" asp-for="@Model.curUser.Email"/>
-                                    <button class="sidebar__compose" type="submit">
-                                        <span class="material-icons"> add </span>Compose
-                                    </button>
-                              
+
+                                <input class="d-none"id="curUserEmail" type="text" value="@Model.curUser.Email" name="SenderEmail" />
+                                <button class="sidebar__compose" type="submit">
+                                    <span class="material-icons"> add </span>Compose
+                                </button>
+
                             </form>
                             <div class="col" id="sidebarOption" style="background-color: #f5dad9" ;>
                                 <span class="material-icons" href="#"> inbox </span>
@@ -59,18 +60,24 @@
                             </div>
 
 
-                           
-
-                            <a href="/Message/Sent">
-                                <div class="col" id="sidebarOption">
-                                    <!--sent-->
-
-                                    <span class="material-icons"> near_me </span>
-                                    <h3>Sent</h3>
-                                </div>
-                            </a>
 
                             
+                            <div class="col" id="sidebarOption">
+                                <!--sent-->
+                                <span class="material-icons"> near_me </span>
+                                <form method="post" asp-action="Sent" asp-controller="Message">
+
+                                    <input class="d-none" type="text" value="@Model.curUser.Email" name="SenderEmail" />
+                                    <button id="sentbtn" type="submit">
+                                        <h3>Sent</h3>
+
+                                    </button>
+
+                                </form>
+
+                            </div>
+                            
+
                         </div>
                     </div>
                 </div>
@@ -126,7 +133,7 @@
                 <div class="row" id="tab-content" style="height: 650px; overflow: scroll;">
                     <div class="container id="emailList">
                         <!-- Email List rows starts -->
-                        @foreach(WebApplication4.Models.Thread a in Model.SeparateThread){
+                        @foreach(WebApplication4.Models.MessageThread a in Model.MsgThread){
 
                                 <partial name="_Emails.cshtml" model="a"></partial>
                             }
