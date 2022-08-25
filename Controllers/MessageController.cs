@@ -4,14 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication4.Models;
+using WebApplication4.Models.Interface;
+
 namespace WebApplication4.Controllers
 {
     public class MessageController : Controller
     {
-        ThreadRepository TR;
-        public MessageController()
+        IThreadRepo TR;
+        public MessageController(IThreadRepo irep)
         {
-            TR = new ThreadRepository();
+            TR = irep;
         }
         public ViewResult Inbox(User u)
         {

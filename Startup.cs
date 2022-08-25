@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication4.Models;
+using WebApplication4.Models.Interface;
 
 namespace WebApplication4
 {
@@ -23,6 +25,8 @@ namespace WebApplication4
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IUserRepo, UserRepo>();
+            services.AddSingleton<IThreadRepo, ThreadRepository>();
             services.AddControllersWithViews();
         }
 

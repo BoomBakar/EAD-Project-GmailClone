@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication4.Models.Interface;
 
 namespace WebApplication4.Models
 {
-    public class ThreadRepository
+    public class ThreadRepository : IThreadRepo
     {
         MailContext db;
         public ThreadRepository()

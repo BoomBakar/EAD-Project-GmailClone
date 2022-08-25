@@ -4,11 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication4.Models;
+using WebApplication4.Models.Interface;
 
 namespace WebApplication4.Controllers
 {
     public class HomeController : Controller
-    {     
+    {
+        IUserRepo userRep;
+        public HomeController(IUserRepo usrR)
+        {
+            userRep = usrR;
+        }
         [HttpGet]   //Sign in page for get request
         public ViewResult SignIn()
         {
@@ -23,7 +29,7 @@ namespace WebApplication4.Controllers
         {
             ViewBag.verify = false;
 
-            if (UserRepo.verifyUser(u))
+            if (userRep.verifyUser(u))
             {
                 ViewBag.verify = true;
                 return RedirectToAction("Inbox","Message", u);     // go to inbox if user entered right credentials
@@ -65,7 +71,7 @@ namespace WebApplication4.Controllers
 
             if (ModelState.IsValid)
             {
-                if (UserRepo.addUser(u)) 
+                if (userRep.addUser(u)) 
                 {
                     ViewBag.unique = true;
                     ViewBag.verify = true;

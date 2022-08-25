@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
+using WebApplication4.Models.Interface;
 
 namespace WebApplication4.Models
 {
-    public class UserRepo
+    public class UserRepo : IUserRepo
     {
         //Add user to datebase with the info received from controller
-        public static bool addUser(User u)
+        public bool addUser(User u)
         {
             if (uniqueEmail(u))
             {
@@ -24,7 +25,7 @@ namespace WebApplication4.Models
             }
         }
         // Verifying user credentials
-        public static bool verifyUser(User u)
+        public bool verifyUser(User u)
         {
             var db = new MailContext();
             //if (u.Email == null || u.Password == null)
@@ -37,7 +38,7 @@ namespace WebApplication4.Models
             return false;
         }
         //This function converts data in database to a list so i can show it in View easily
-        public static bool uniqueEmail(User us)
+        public bool uniqueEmail(User us)
         {
             HashSet<User> users = new HashSet<User>(new UserComparer());
            
