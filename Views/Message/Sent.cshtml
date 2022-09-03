@@ -47,23 +47,26 @@
                     <!--inbox-->
                     <form method="post" asp-action="Compose" asp-controller="Message">
 
-                        <input class="d-none" type="text" value="@Model.curUser.Email" name="SenderEmail"/>
+                        <input class="d-none" id="curUserEmail" type="text" value="@Model.curUser.Email" name="SenderEmail" />
                         <button class="sidebar__compose" type="submit">
                             <span class="material-icons"> add </span>Compose
                         </button>
-
                     </form>
-                    <a href="/Message/Inbox">
+                    <form method="post" asp-action="Inbox" asp-controller="Message">
                         <div class="col" id="sidebarOption">
-                            <span class="material-icons" href="#"> inbox </span>
-                            <h3>Inbox</h3>
-                        </div>
-                    </a>
+                            <span class="material-icons"> inbox </span>
+
+                            <input class="d-none" type="text" value="@Model.curUser.Email" name="SenderEmail" />
+                            <button class="sentbtn" type="submit">
+                                <h3>Inbox</h3>
+                            </button>
+                    </form>
+                    </div>
 
                     <div class="col" id="sidebarOption" style="background-color: #f5dad9" ;>
                         <!--sent-->
                         <span class="material-icons"> near_me </span>
-                        <a href="/Message/Sent"><h3>Sent</h3></a>
+                        <a href="#"><h3>Sent</h3></a>
                     </div>
 
                 </div>

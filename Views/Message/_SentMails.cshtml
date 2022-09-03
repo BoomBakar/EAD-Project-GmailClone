@@ -1,9 +1,34 @@
 ﻿@model WebApplication4.Models.MessageThread;
 
-
 <div class="row" id="emailList__list">
+
     <!-- Email Row Starts -->
-    <div class="col" id="emailRow">
+    <form method="post" asp-action="MailDetail" asp-controller="Message">
+        <div class="col EmailOpener EmailOpenerParent" id="emailRow">
+
+            <div class="col EmailOpener">
+                <h3 id="emailRow__title" class="EmailOpener">To: @Model.thrd.ReceiverEmail</h3>
+            </div>
+            <div class="col EmailOpener" id="emailRow__message">
+                <h4 class="EmailOpener">
+                    @Model.thrd.Subject
+                    <span class="emailRow__description"> - @Model.msg.Msg</span>
+                </h4>
+            </div>
+            <div class="col EmailOpener">
+                <p class="emailRow__time EmailOpener">@Model.msg.DateAndTime</p>
+            </div>
+        </div>
+
+        <input type="number" value="@Model.thrd.Id" asp-for="thrd.Id" class="d-none" />
+        <input type="email" value="" name="CurUserEmail" class="d-none" />
+        <button type="submit" class="d-none"></button>
+    </form>
+
+</div>
+<!--<div class="row" id="emailList__list">-->
+    <!-- Email Row Starts -->
+    <!--<div class="col" id="emailRow">
         <div class="col" id="emailRow__options">
             <input type="checkbox" />
             <span class="material-icons"> label_important </span>
@@ -21,4 +46,4 @@
             <p class="emailRow__time">@Model.msg.DateAndTime</p>
         </div>
     </div>
-</div>
+</div>-->

@@ -42,7 +42,7 @@ body {
     padding: 10px;
     border-radius: 5px;
 }
-#sentbtn {
+.sentbtn {
     background: none;
     color: inherit;
     border: none;
@@ -53,6 +53,8 @@ body {
     width:170px;
     text-align:left;
 }
+
+
 .material-icons {
     color: gray;
 }
@@ -143,7 +145,7 @@ email list
 }
 
 .Message-Container {
-    height: 100%;
+    height: 50%;
     overflow-y: scroll;
     scroll-behavior: auto;
 }

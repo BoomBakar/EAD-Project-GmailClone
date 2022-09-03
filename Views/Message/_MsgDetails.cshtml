@@ -1,12 +1,11 @@
 ﻿
 @model WebApplication4.Models.Message;
 <div id="maildet">
-    <p class="h3">@ViewData["Subject"]</p><br />
-    <h4 style="margin-bottom:-6px" ;>
+    <p class="h3">@ViewData["Subject"]</p>
+    <h4 style="margin-bottom:-5px" ;>
         @*name of user here*@ 
-        <small class="text-muted">@Model.SenderEmail</small>
+        <p>@Model.SenderEmail</p>
     </h4>
-    <small class="text-muted">to me</small><br /><br />
     <div id="mailbody">
         <p>
             @Model.Msg

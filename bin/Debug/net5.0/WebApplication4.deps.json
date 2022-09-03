@@ -38,6 +38,8 @@
           "Microsoft.EntityFrameworkCore": "5.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.0",
+          "bootstrap": "5.2.0",
+          "bootstrap.sass": "5.2.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -369,6 +371,8 @@
           "lib/netstandard2.0/Azure.Identity.dll": {}
         }
       },
+      "bootstrap/5.2.0": {},
+      "bootstrap.sass/5.2.0": {},
       "Humanizer.Core/2.8.26": {
         "runtime": {
           "lib/netstandard2.0/Humanizer.dll": {
@@ -2643,6 +2647,20 @@
       "sha512": "sha512-l1SYfZKOFBuUFG7C2SWHmJcrQQaiXgBdVCycx4vcZQkC6efDVt7mzZ5pfJAFEJDBUq7mjRQ0RPq9ZDGdSswqMg==",
       "path": "azure.identity/1.3.0",
       "hashPath": "azure.identity.1.3.0.nupkg.sha512"
+    },
+    "bootstrap/5.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YpzkoN4cTzTfmhW4OzPj4QkWXOllC3KR1RCvWgHv+D2bm07HiJQULZ6NYRR9++nOu0iQ6j1W4pszd0xVn6Z8sQ==",
+      "path": "bootstrap/5.2.0",
+      "hashPath": "bootstrap.5.2.0.nupkg.sha512"
+    },
+    "bootstrap.sass/5.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rP79QIqmi1+UjPjpdxs/Jy72jqAFsKLQtPquVB8y3ecM8zFvLkwcNBwdMutVJVLv8z4W4FSQMuwj8/8JJyZS/Q==",
+      "path": "bootstrap.sass/5.2.0",
+      "hashPath": "bootstrap.sass.5.2.0.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",

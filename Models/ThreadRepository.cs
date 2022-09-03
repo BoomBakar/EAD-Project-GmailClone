@@ -66,6 +66,12 @@ namespace WebApplication4.Models
             }
             return b;
         }
+        public void AddMessage(Message m)
+        {
+            db.Messages.Add(m);
+            m.DateAndTime = DateTime.Now.ToString();
+            db.SaveChanges();
+        }
         public List<Message> getAllMessages(Thread t)
         {
             List<Message> M = db.Messages.Where(x => x.ThreadId == t.Id).ToList();

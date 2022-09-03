@@ -79,7 +79,7 @@
         <!--sidebar ends-->
     </div> <!--sidebar col ends-->
 
-    <div class="col-sm-6 col-md-9">
+    <div class="col-sm-6 col-md-9" style="overflow-y:scroll">
         <div class="row">
             <div class="col" id="emailList">
                 <!-- Settings Starts -->
@@ -103,13 +103,29 @@
         <div class="Message-Container">
             @foreach (WebApplication4.Models.Message m in Model.allMessages)
             {
-                <partial name="_MsgDetails" model="m"  />
+                <partial name="_MsgDetails" model="m" />
             }
         </div>
-        <button id="rep" type="button" class="button def"><span class="material-icons">reply</span>&nbsp;Reply</button>
+
+        <button id="rep" style="position:relative;top:-60px;" type="button" class="button def"><span class="material-icons">reply</span>&nbsp;Reply</button>
 
         <br />
-        <div id="reply"></div>
+
+        <input type="Number" value="@Model.Thrd.Id" class="d-none">
+        <input type="email" value="@Model.curUser.Email" class="d-none">
+        @if (Model.allMessages[0].SenderEmail == Model.curUser.Email)
+        {
+            <input type="email" value="@Model.allMessages[0].ReceiverEmail" class="d-none">
+        }
+        else
+        {
+            <input type="email" value="@Model.allMessages[0].SenderEmail" class="d-none">
+        }
+        <div id="reply" style="position:relative;top:-390px;">
+
+
+
+        </div>
 
 
 

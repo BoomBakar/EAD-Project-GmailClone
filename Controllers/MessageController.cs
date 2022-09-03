@@ -15,15 +15,25 @@ namespace WebApplication4.Controllers
         {
             TR = irep;
         }
-        public ViewResult Inbox(User u)
+        public ViewResult Inbox(User u,String SenderEmail)
         {
             AllEmails a = new AllEmails();
-            a.curUser = u;
-
+            if(SenderEmail!=null)
+            {
+                User u2 = new User();
+                u2.Email = SenderEmail;
+                a.curUser = u2;
+            }
+            else 
+            {
+                a.curUser = u;
+            }
+            
+            
             a=TR.GetallEmails(a);
             return View(a);
         }
-
+       
         public ViewResult Sent(String SenderEmail)
         {
             AllEmails a = new AllEmails();
@@ -63,6 +73,17 @@ namespace WebApplication4.Controllers
             m.ReceiverEmail = To;
             m.Msg = Body;
             TR.AddThread(t, m);
+            return Json("success");
+        }
+        public IActionResult CreateReply(int threadId,String SenderEmail,String RecieverEmail,String msg)
+        {
+            Message m = new Message();
+            m.ThreadId = threadId;
+            m.SenderEmail = SenderEmail;
+            m.ReceiverEmail = RecieverEmail;
+            m.Msg = msg;
+
+            TR.AddMessage(m);
             return Json("success");
         }
     }
