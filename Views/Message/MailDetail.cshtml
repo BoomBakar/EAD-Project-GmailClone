@@ -32,6 +32,7 @@
                 <span class="material-icons"> apps </span>
                 <span class="material-icons"> notifications </span>
                 <span class="material-icons"> account_circle </span>
+                <a asp-action="SignIn" asp-controller="Home"><button class="btn btn-danger" style="margin-left:250px">Log out</button></a>
             </div>
         </div>
 
@@ -47,33 +48,49 @@
             <div class="row">
                 <div class="col" id="sidebar">
                     <!--inbox-->
-                    <a asp-action="Compose">
-                        <button class="sidebar__compose">
+                    <form method="post" asp-action="Compose" asp-controller="Message">
+
+                        <input class="d-none" id="curUserEmail" type="text" value="@Model.curUser.Email" name="SenderEmail" />
+                        <button class="sidebar__compose" type="submit">
                             <span class="material-icons"> add </span>Compose
                         </button>
-                    </a>
-                    <div class="col" id="sidebarOption" style="background-color: #f5dad9" ;>
-                        <span class="material-icons" href="#"> inbox </span>
-                        <a href="/Home/Inbox"><h3>Inbox</h3></a>
-                    </div>
+                    </form>
+                    <form method="post" asp-action="Inbox" asp-controller="Message">
+                        <div class="col" id="sidebarOption">
+                            <span class="material-icons"> inbox </span>
+
+                            <input class="d-none" type="text" value="@Model.curUser.Email" name="SenderEmail" />
+                            <button class="sentbtn" type="submit">
+                                <h3>Inbox</h3>
+                            </button>
+                    </form>
+                </div>
 
 
 
-                    <div class="col" id="sidebarOption">
-                        <!--sent-->
+                <div class="col" id="sidebarOption">
+                    <!--sent-->
+                    <span class="material-icons"> near_me </span>
+                    <form method="post" asp-action="Sent" asp-controller="Message">
 
-                        <span class="material-icons"> near_me </span>
-                        <a href="/Home/Sent"><h3>Sent</h3></a>
-                    </div>
+                        <input class="d-none" type="text" value="@Model.curUser.Email" name="SenderEmail" />
+                        <button class="sentbtn" type="submit">
+                            <h3>Sent</h3>
 
-                    <div class="col" id="sidebar__footer">
-                        <div class="col" id="sidebar__footerIcons">
-                            <span class="material-icons"> person </span>
-                            <span class="material-icons"> duo </span>
-                            <span class="material-icons"> phone </span>
-                        </div>
+                        </button>
+
+                    </form>
+
+                </div>
+
+                <div class="col" id="sidebar__footer">
+                    <div class="col" id="sidebar__footerIcons">
+                        <span class="material-icons"> person </span>
+                        <span class="material-icons"> duo </span>
+                        <span class="material-icons"> phone </span>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
         <!--sidebar ends-->
