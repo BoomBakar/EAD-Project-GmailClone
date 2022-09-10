@@ -74,10 +74,28 @@ $(document).ready(function () {
             }, error: function () {
                 alert("error in ajax");     
             }
-
-
-
         });
     });
+    document.getElementById('livesearchtags').addEventListener('keyup', function (e) {
+        //Run LiveSearch on ever key up 
+        LiveSearch();
+    });
+    function LiveSearch() {
+        //Get the input value
+        let value = document.getElementById('livesearchtags').value;
+
+        $.ajax({
+            type: "POST",
+            // You can use the absolute url eg www.site.com/MyControllerName/LiveTagSearch or the relative path live below  
+            url: "/Message/LiveTagSearch",
+            // Attach the value to a parameter called search
+            data: { search: value },
+            datatype: "html",
+            success: function (data) {
+                // Insert the returned search results html into the result element 
+                $('#result').html(data);
+            }
+        });
+    }
 });
 

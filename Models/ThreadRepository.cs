@@ -90,5 +90,13 @@ namespace WebApplication4.Models
             a = getAllMessages(a);
             return a;
         }
+        public List<Thread> search(string s)
+        {
+            var db = new MailContext();
+            
+            var data = db.Threads.Where(x => x.Subject.StartsWith(s)).ToList();
+
+            return data;
+        }
     }
 }

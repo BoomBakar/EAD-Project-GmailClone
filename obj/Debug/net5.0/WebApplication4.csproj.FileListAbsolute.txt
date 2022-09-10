@@ -54,7 +54,6 @@ C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\WebApplication4
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Home\SignIn.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Home\SignUp.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Home\Thanks.cshtml.g.cs
-C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Home\UserList.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Shared\_ViewStart.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
@@ -82,3 +81,6 @@ C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Mes
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Message\MailDetail.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Message\Sent.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Message\_MsgDetails.cshtml.g.cs
+C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Admin\SignIn.cshtml.g.cs
+C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Admin\UserList.cshtml.g.cs
+C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Message\LiveTagSearch.cshtml.g.cs

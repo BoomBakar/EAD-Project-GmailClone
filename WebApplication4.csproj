@@ -10,6 +10,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Dockerfile" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Dockerfile" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\css\table.css" />
     <None Include="wwwroot\images\logo.png" />
     <None Include="wwwroot\images\user.png" />

@@ -86,5 +86,13 @@ namespace WebApplication4.Controllers
             TR.AddMessage(m);
             return Json("success");
         }
+        public PartialViewResult LiveTagSearch(string search)
+        {
+            var res = TR.search(search);
+            
+
+            // Pass the List of results to a Partial View 
+            return PartialView(res);
+        }
     }
 }

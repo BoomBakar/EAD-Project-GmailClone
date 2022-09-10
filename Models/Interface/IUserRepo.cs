@@ -10,5 +10,8 @@ namespace WebApplication4.Models.Interface
         public bool addUser(User u);
         public bool verifyUser(User u);
         public bool uniqueEmail(User us);
+        public List<User> GetAllUsers();
+        public void delUser(User u);
+        public bool isBlocked(User u);
     }
 }

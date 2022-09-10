@@ -8,7 +8,12 @@ using WebApplication4.Models.Interface;
 namespace WebApplication4.Models
 {
     public class UserRepo : IUserRepo
+
     {
+        public UserRepo()
+        {
+            var db = new MailContext();
+        }
         //Add user to datebase with the info received from controller
         public bool addUser(User u)
         {
@@ -63,11 +68,33 @@ namespace WebApplication4.Models
                 return true;            
             else            
                 return false;
-            
-            
+        }
+        public List<User> GetAllUsers()
+        {
+            var db = new MailContext();
+            return db.Users.Where(x=>x.isActive==true).ToList();
+        }
+        public void delUser(User u)
+        {
+            var db = new MailContext();
+
+            var result = db.Users.SingleOrDefault(b => b.Email == u.Email);
+            if (result != null)
+            {
+                result.isActive = false;
+                db.SaveChanges();
+            }
 
         }
+        public bool isBlocked(User u)
+        {
+            var db = new MailContext();
+            var res = db.Users.First(x=>x.Email==u.Email);
+            return res.isActive;
+            
+        }
     }
+    
     public class UserComparer : IEqualityComparer<User>
     {
         public bool Equals(User x, User y)

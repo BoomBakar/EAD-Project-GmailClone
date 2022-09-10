@@ -29,6 +29,7 @@ namespace WebApplication4.Models
         [Required(ErrorMessage = "Cannot leave this field empty")]
         [RegularExpression(@"(?=^.{8,}$)(?=.*[A-Z])(?=.*[a-z]).*$", ErrorMessage = "Password must contain atleast one uppercase,one lower and one digit")]
         public string Password { get; set; }
+        public bool isActive { get; set; }
 
         public virtual ICollection<Message> MessageReceiverEmailNavigations { get; set; }
         public virtual ICollection<Message> MessageSenderEmailNavigations { get; set; }

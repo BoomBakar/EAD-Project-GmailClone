@@ -28,12 +28,17 @@ namespace WebApplication4.Controllers
         public IActionResult SignIn(User u)
         {
             ViewBag.verify = false;
-
-            if (userRep.verifyUser(u))
+            u.isActive = userRep.isBlocked(u);
+            if (!u.isActive)
+            {
+                ViewBag.verify = true;
+                return View("SignIn", u);
+            }
+            else if (userRep.verifyUser(u))
             {
                 ViewBag.verify = true;
                 return RedirectToAction("Inbox","Message", u);     // go to inbox if user entered right credentials
-            }
+            }        
             else
             {
                 ViewBag.verify = false;

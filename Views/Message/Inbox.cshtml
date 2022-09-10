@@ -24,7 +24,7 @@
                 <div class="col" id="header-middle">
                     <span class="material-icons"> search </span>
                     <!--toSEARCH INPUT FLIED-->
-                    <input type="text" placeholder="Search mail" />
+                    <input id="livesearchtags" name="livesearchtags" placeholder="Search mail" autocomplete="off" />
                     <span class="material-icons"> arrow_drop_down </span>
                 </div>
 
@@ -131,24 +131,28 @@
                     </div><!--rowend-->
 
                 </div>
+                <div id="result" class="tag-results">
 
+                </div>
 
                 <!-- Tab panes -->
                 <div class="row" id="tab-content" style="height: 650px; overflow: scroll;">
+
                     <div class="container id="emailList">
                         <!-- Email List rows starts -->
-                        @foreach(WebApplication4.Models.MessageThread a in Model.MsgThread){
+                        @foreach (WebApplication4.Models.MessageThread a in Model.MsgThread)
+                        {
 
-                                <partial name="_Emails.cshtml" model="a"></partial>
-                            }
+                            <partial name="_Emails.cshtml" model="a"></partial>
+                        }
+
+                    </div>
+
 
                 </div>
 
 
             </div>
-
-
-        </div>
     </div>
     
     <!--main body w-->

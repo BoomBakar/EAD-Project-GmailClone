@@ -16,5 +16,6 @@ namespace WebApplication4.Models.Interface
         public AllEmails getAllSentEmails(AllEmails a);
         public AllEmails GetallEmails(AllEmails a);
         public void AddMessage(Message m);
+        public List<Thread> search(string s);
     }
 }
