@@ -224,6 +224,23 @@ input {
     margin-top:50px;
 
 }
+.search-tag-detail {
+    display: flex;
+    flex-direction: row;
+    padding: 3px;
+    background-color: #d9edf7;
+    border-radius: 3px;
+}
+
+.search-tag {
+    display: flex;
+    margin: 2px 2px 2px 0px;
+}
+
+.tag-results {
+    display: flex;
+    flex-direction: row;
+}
 
 .button {
     border: 3px solid black;

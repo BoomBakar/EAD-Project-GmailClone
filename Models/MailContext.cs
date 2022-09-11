@@ -126,6 +126,32 @@ namespace WebApplication4.Models
 
             OnModelCreatingPartial(modelBuilder);
         }
+        public override int SaveChanges()
+        {
+            var tracker = ChangeTracker;
+            foreach (var entry in tracker.Entries())
+            {
+                if (entry.Entity is Entity)
+                {
+                    var referenceEntity = entry.Entity as Entity;
+                    switch (entry.State)
+                    {
+                        case EntityState.Added:
+                            referenceEntity.CreatedDate = DateTime.Now;
+                            referenceEntity.CreatedByUser = "Abubakar";
+                            break;
+                        case EntityState.Deleted:
+                        case EntityState.Modified:
+                            referenceEntity.ModifiedDate = DateTime.Now;
+                            referenceEntity.ModifiedByUser = "Abubakar";
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            return base.SaveChanges();
+        }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }

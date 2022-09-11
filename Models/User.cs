@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication4.Models
 {
-    public partial class User
+    public partial class User : Entity
     {
         public User()
         {
@@ -30,6 +30,10 @@ namespace WebApplication4.Models
         [RegularExpression(@"(?=^.{8,}$)(?=.*[A-Z])(?=.*[a-z]).*$", ErrorMessage = "Password must contain atleast one uppercase,one lower and one digit")]
         public string Password { get; set; }
         public bool isActive { get; set; }
+        public new string CreatedByUser { get; set; }
+        public new DateTimeOffset CreatedDate { get; set; }
+        public new string ModifiedByUser { get; set; }
+        public new DateTimeOffset ModifiedDate { get; set; }
 
         public virtual ICollection<Message> MessageReceiverEmailNavigations { get; set; }
         public virtual ICollection<Message> MessageSenderEmailNavigations { get; set; }
