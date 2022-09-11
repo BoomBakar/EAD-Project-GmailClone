@@ -20,6 +20,7 @@ namespace WebApplication4.Models
             if (uniqueEmail(u))
             {
                 var db = new MailContext();
+                u.isActive = true;
                 db.Users.Add(u);
                 db.SaveChanges();
                 return true;
@@ -89,9 +90,10 @@ namespace WebApplication4.Models
         public bool isBlocked(User u)
         {
             var db = new MailContext();
-            var res = db.Users.First(x=>x.Email==u.Email);
+            var res = db.Users.SingleOrDefault(x => x.Email == u.Email);
             return res.isActive;
-            
+
+
         }
     }
     

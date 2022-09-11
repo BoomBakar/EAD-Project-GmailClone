@@ -50,18 +50,7 @@ namespace WebApplication4.Controllers
         {
             return PartialView("Reply");
         }
-        //[HttpPost]
-        //public JsonResult ValidateUser(string userid, string password)
-        //{
-        //    User u = new User();
-        //    u.Name = userid;
-        //    u.Password = password;
-
-        //    if (UserRepo.verifyUser(u))
-        //        return Json(new { Success = true }, System.Web.Mvc.JsonRequestBehavior.AllowGet);
-        //    else
-        //        return Json(new { Success = false }, System.Web.Mvc.JsonRequestBehavior.AllowGet);
-        //}
+        
 
         [HttpGet]   //Sign up for get request
         public ViewResult SignUp()
@@ -93,26 +82,7 @@ namespace WebApplication4.Controllers
                 return View();
             }
         }
-        public ViewResult UserList()    //Showing all users in a table as per the assignment
-        {
-            List<User> list = new List<User>();
-            //list = UserRepo.datareaderToList();
-
-            return View();
-        }
-        //public ViewResult Inbox()
-        //{
-        //    return View();
-        //}
+        
        
-        //public ViewResult Sent()
-        //{
-        //    return View();
-        //}
-        //public ViewResult MailDetail()
-        //{
-        //    return View();
-        //}
-
     }
 }

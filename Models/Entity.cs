@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace WebApplication4.Models
 {
-    public abstract class Entity
+    public class Entity
     {
         public string CreatedByUser { get; set; }
-        public DateTimeOffset CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
         public string ModifiedByUser { get; set; }
-        public DateTimeOffset ModifiedDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
     }
 }
