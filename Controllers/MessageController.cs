@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApplication4.Models;
 using WebApplication4.Models.Interface;
+using Microsoft.AspNetCore.Hosting;
 
 namespace WebApplication4.Controllers
 {
@@ -89,7 +90,7 @@ namespace WebApplication4.Controllers
         public PartialViewResult LiveTagSearch(string search)
         {
             var res = TR.search(search);
-            
+
 
             // Pass the List of results to a Partial View 
             return PartialView(res);

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using WebApplication4.Models.Interface;
+using Microsoft.AspNetCore.Hosting;
 
 namespace WebApplication4.Models
 {
@@ -90,10 +91,9 @@ namespace WebApplication4.Models
         public bool isBlocked(User u)
         {
             var db = new MailContext();
-            var res = db.Users.SingleOrDefault(x => x.Email == u.Email);
+            var res = db.Users.First(x => x.Email == u.Email);
             return res.isActive;
-
-
+            
         }
     }
     

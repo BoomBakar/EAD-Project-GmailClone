@@ -44,13 +44,16 @@ namespace WebApplication4.Controllers
         }
         [HttpGet]
         public IActionResult UserList()
-        {
-            
+        {            
             return View();
         }
         [HttpPost]
-        public IActionResult UserList(User u)
+        public IActionResult UserList(String Name,String Password, String Email)
         {
+            User u = new User();
+            u.Name = Name;
+            u.Email = Email;
+            u.Password = Password;
             userRep.delUser(u);
             List<User> list = new List<User>();
             list = userRep.GetAllUsers();
