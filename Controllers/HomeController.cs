@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,6 +70,19 @@ namespace WebApplication4.Controllers
                 {
                     ViewBag.unique = true;
                     ViewBag.verify = true;
+                    string data = String.Empty;
+                    if (HttpContext.Request.Cookies.ContainsKey("User"))
+                    {
+                        string firstVisitedDateTime = HttpContext.Request.Cookies["User"];
+                        data = "Already Exists " + firstVisitedDateTime;
+
+                    }
+                    else
+                    {
+                        CookieOptions option = new CookieOptions();
+                        option.Expires = System.DateTime.Now.AddDays(365);
+                        HttpContext.Response.Cookies.Append("User", u.Email, option);
+                    }
                     return View("SignIn", u);   //add user if all model validations are fine
                 }
                 else

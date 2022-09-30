@@ -84,3 +84,4 @@ C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Mes
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Admin\SignIn.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Admin\UserList.cshtml.g.cs
 C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Message\LiveTagSearch.cshtml.g.cs
+C:\Users\BoomBakar\source\repos\WebApplication4\obj\Debug\net5.0\Razor\Views\Admin\Main.cshtml.g.cs

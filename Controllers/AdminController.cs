@@ -48,7 +48,7 @@ namespace WebApplication4.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult UserList(String Name,String Password, String Email)
+        public ViewResult UserList(String Name,String Password, String Email)
         {
             User u = new User();
             u.Name = Name;
@@ -58,6 +58,10 @@ namespace WebApplication4.Controllers
             List<User> list = new List<User>();
             list = userRep.GetAllUsers();
             return View(list);
+        }
+        public IActionResult Main()
+        {
+            return View();
         }
     }
 }
